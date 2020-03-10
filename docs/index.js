@@ -23,29 +23,29 @@ function start(e) {
 
     // SET LANG FROM INPUT
     var lang = 'en';
-    delay = document.getElementById('delay').value;
+    var delay = document.getElementById('delay').value;
 
 
-    vUseSingleCell = document.getElementById('useSingleCell').value;
-    vShowRes = document.querySelector('#vShowRes:checked') ? 1 : 0;
-    vShowCost = document.querySelector('#vShowCost:checked') ? 1 : 0;
-    vShowAddEntries = document.querySelector('#vShowAddEntries:checked') ? 1 : 0;
-    vShowComp = document.querySelector('#vShowComp:checked') ? 1 : 0;
-    vShowDur = document.querySelector('#vShowDur:checked') ? 1 : 0;
-    vShowStartDate = document.querySelector('#vShowStartDate:checked') ? 1 : 0;
-    vShowEndDate = document.querySelector('#vShowEndDate:checked') ? 1 : 0;
-    vShowPlanStartDate = document.querySelector('#vShowPlanStartDate:checked') ? 1 : 0;
-    vShowPlanEndDate = document.querySelector('#vShowPlanEndDate:checked') ? 1 : 0;
-    vShowTaskInfoLink = document.querySelector('#vShowTaskInfoLink:checked') ? 1 : 0;
-    vShowEndWeekDate = document.querySelector('#vShowEndWeekDate:checked') ? 1 : 0;
-    vTotalHeight = document.querySelector('#vTotalHeight').value || undefined;
+    var vUseSingleCell = document.getElementById('useSingleCell').value;
+    var vShowRes = document.querySelector('#vShowRes:checked') ? 1 : 0;
+    var vShowCost = document.querySelector('#vShowCost:checked') ? 1 : 0;
+    var vShowAddEntries = document.querySelector('#vShowAddEntries:checked') ? 1 : 0;
+    var vShowComp = document.querySelector('#vShowComp:checked') ? 1 : 0;
+    var vShowDur = document.querySelector('#vShowDur:checked') ? 1 : 0;
+    var vShowStartDate = document.querySelector('#vShowStartDate:checked') ? 1 : 0;
+    var vShowEndDate = document.querySelector('#vShowEndDate:checked') ? 1 : 0;
+    var vShowPlanStartDate = document.querySelector('#vShowPlanStartDate:checked') ? 1 : 0;
+    var vShowPlanEndDate = document.querySelector('#vShowPlanEndDate:checked') ? 1 : 0;
+    var vShowTaskInfoLink = document.querySelector('#vShowTaskInfoLink:checked') ? 1 : 0;
+    var vShowEndWeekDate = document.querySelector('#vShowEndWeekDate:checked') ? 1 : 0;
+    var vTotalHeight = document.querySelector('#vTotalHeight').value || undefined;
 
-    vShowWeekends = document.querySelector('#vShowWeekends:checked') ? 1 : 0;
+    var vShowWeekends = document.querySelector('#vShowWeekends:checked') ? 1 : 0;
 
-    vMinDate = document.querySelector('#vMinDate').value;
-    vMaxDate = document.querySelector('#vMaxDate').value;
+    var vMinDate = document.querySelector('#vMinDate').value;
+    var vMaxDate = document.querySelector('#vMaxDate').value;
 
-    vAdditionalHeaders = {
+    var vAdditionalHeaders = {
       category: {
         title: 'Category'
       },
