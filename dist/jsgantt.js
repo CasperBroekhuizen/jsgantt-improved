@@ -4732,22 +4732,20 @@ exports.makeRequest = function (pFile, json, vDebug) {
     if (json === void 0) { json = true; }
     if (vDebug === void 0) { vDebug = false; }
     if (window.fetch) {
-        var f = fetch(pFile);
+        //var f = fetch(pFile);
         //instead of a simple fetch, authenticate and get the actual project planning.
        
-        octokit = new exports.Octokit();
+        var octokit = new Octokit();
         console.log("Octokit imported.")
-        // octokit.repos
-        // .getContents({
-        //     owner: "jsGanttImproved",
-        //     repo: "jsgantt-improved",
-        //     path: "/dist/jsgantt.js"
-        // }).then((res) => {
-        //     console.log("OCTOPRINT: output received!");
-        // })
+        var f = octokit.repos
+        .getContents({
+            owner: "jsGanttImproved",
+            repo: "jsgantt-improved",
+            path: "/docs/fixes/data.json"
+        })
 
         if (json) {
-            return f.then(function (res) { return res.json(); });
+            return f.then(function (res) { return res.data.json(); });
         }
         else {
             return f;
