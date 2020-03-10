@@ -4735,7 +4735,7 @@ exports.makeRequest = function (pFile, json, vDebug) {
         var f = fetch(pFile);
         //instead of a simple fetch, authenticate and get the actual project planning.
        
-        octokit = new Octokit();
+        octokit = new exports.Octokit();
         console.log("Octokit imported.")
         // octokit.repos
         // .getContents({
