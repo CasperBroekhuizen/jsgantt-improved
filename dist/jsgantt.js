@@ -4746,9 +4746,10 @@ exports.makeRequest = async function (pFile, json, vDebug) {
             }
           });
 
-        const tokenAuthentication = await auth({
-            type: "token"
-          });
+        const appAuthentication = await auth({
+        type: "oauth-app",
+        url: "/orgs/DelfiSpace/repos"
+        });
 
         var octokit = new Octokit({
             hook: auth.hook,
