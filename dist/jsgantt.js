@@ -4724,13 +4724,16 @@ exports.moveToolTip = function (pNewX, pNewY, pTool, timer) {
         }
     }
 };
+
+import Octokit from "https://cdn.pika.dev/@octokit/rest";
+exports.Octokit = Octokit;
 exports.makeRequest = function (pFile, json, vDebug) {
     if (json === void 0) { json = true; }
     if (vDebug === void 0) { vDebug = false; }
     if (window.fetch) {
         var f = fetch(pFile);
         //instead of a simple fetch, authenticate and get the actual project planning.
-        import Octokit from "https://cdn.pika.dev/@octokit/rest";
+       
         // octokit = new Octokit();
         // console.log("Octokit imported.")
         // octokit.repos
