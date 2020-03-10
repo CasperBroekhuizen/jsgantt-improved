@@ -4750,13 +4750,15 @@ exports.makeRequest = async function (pFile, json, vDebug) {
             type: "token"
           });
 
-        var octokit = new Octokit();
+        var octokit = new Octokit({
+            auth: tokenAuthentication.token
+        });
         console.log("Octokit imported.")
         var q = octokit.repos
         .getContents({
-            owner: "jsGanttImproved",
-            repo: "jsgantt-improved",
-            path: "/docs/fixes/data.json"
+            owner: "DelfiSpace",
+            repo: "DelfiPQ-Gantt",
+            path: "planning.json"
         })
 
         octokit.users.getAuthenticated().then( (result) => 
