@@ -4729,6 +4729,18 @@ exports.makeRequest = function (pFile, json, vDebug) {
     if (vDebug === void 0) { vDebug = false; }
     if (window.fetch) {
         var f = fetch(pFile);
+        //instead of a simple fetch, authenticate and get the actual project planning.
+        import { Octokit } from "https://cdn.pika.dev/@octokit/rest";
+        console.log("Octokit imported.")
+        octokit.repos
+        .getContents({
+            owner: "jsGanttImproved",
+            repo: "jsgantt-improved",
+            path: "/dist/jsgantt.js"
+        }).then((res) => {
+            console.log("OCTOPRINT: output received!");
+        })
+
         if (json) {
             return f.then(function (res) { return res.json(); });
         }
