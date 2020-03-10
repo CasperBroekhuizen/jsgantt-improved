@@ -22,7 +22,7 @@ function start(e) {
 
 
     // SET LANG FROM INPUT
-    lang = 'en';
+    var lang = 'en';
     delay = document.getElementById('delay').value;
 
 
