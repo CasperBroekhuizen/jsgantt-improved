@@ -4744,6 +4744,8 @@ exports.makeRequest = function (pFile, json, vDebug) {
             path: "/docs/fixes/data.json"
         }).then((data) => {
             console.log("Received!")
+            var testStr = atob(data.content)
+            console.log("Decoded!")
         }) 
 
         if (json) {
