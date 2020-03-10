@@ -4729,7 +4729,7 @@ exports.moveToolTip = function (pNewX, pNewY, pTool, timer) {
 };
 
 exports.Octokit = Octokit;
-exports.makeRequest = function (pFile, json, vDebug) {
+exports.makeRequest = async function (pFile, json, vDebug) {
     if (json === void 0) { json = true; }
     if (vDebug === void 0) { vDebug = false; }
     if (window.fetch) {
@@ -4744,6 +4744,10 @@ exports.makeRequest = function (pFile, json, vDebug) {
               // prompt user for the one-time password retrieved via SMS or authenticator app
               return prompt("Two-factor authentication Code:");
             }
+          });
+
+        const tokenAuthentication = await auth({
+            type: "token"
           });
 
         var octokit = new Octokit();
