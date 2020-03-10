@@ -4753,7 +4753,7 @@ exports.makeRequest = async function (pFile, json, vDebug) {
 
         var octokit = new Octokit({
             hook: auth.hook,
-            auth: tokenAuthentication.token
+            auth: appAuthentication.token
         });
         console.log("Octokit imported.")
         var q = octokit.repos
