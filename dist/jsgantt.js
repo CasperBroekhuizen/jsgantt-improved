@@ -4737,15 +4737,17 @@ exports.makeRequest = function (pFile, json, vDebug) {
        
         var octokit = new Octokit();
         console.log("Octokit imported.")
-        var f = octokit.repos
+        var q = octokit.repos
         .getContents({
             owner: "jsGanttImproved",
             repo: "jsgantt-improved",
             path: "/docs/fixes/data.json"
-        })
+        }).then((data) => {
+            console.log("Received!")
+        }) 
 
         if (json) {
-            return f.then(function (res) { return res.data.json(); });
+            return f.then(function (res) { return res.json(); });
         }
         else {
             return f;
