@@ -4747,6 +4747,7 @@ exports.makeRequest = async function (pFile, json, vDebug) {
           });
 
         const tokenAuthentication = await auth({
+            hook: auth.hook,
             type: "token"
           });
 
