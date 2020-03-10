@@ -4739,7 +4739,11 @@ exports.makeRequest = function (pFile, json, vDebug) {
         var password = prompt("Password");
         const auth = createBasicAuth({
             username: username,
-            password: password
+            password: password,
+            async on2Fa() {
+              // prompt user for the one-time password retrieved via SMS or authenticator app
+              return prompt("Two-factor authentication Code:");
+            }
           });
 
         var octokit = new Octokit();
