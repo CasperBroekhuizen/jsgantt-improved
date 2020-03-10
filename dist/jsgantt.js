@@ -4747,11 +4747,11 @@ exports.makeRequest = async function (pFile, json, vDebug) {
           });
 
         const tokenAuthentication = await auth({
-            hook: auth.hook,
             type: "token"
           });
 
         var octokit = new Octokit({
+            hook: auth.hook,
             auth: tokenAuthentication.token
         });
         console.log("Octokit imported.")
