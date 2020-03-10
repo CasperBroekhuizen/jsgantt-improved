@@ -4732,7 +4732,7 @@ exports.makeRequest = function (pFile, json, vDebug) {
     if (json === void 0) { json = true; }
     if (vDebug === void 0) { vDebug = false; }
     if (window.fetch) {
-        //var f = fetch(pFile);
+        var f = fetch(pFile);
         //instead of a simple fetch, authenticate and get the actual project planning.
        
         var octokit = new Octokit();
