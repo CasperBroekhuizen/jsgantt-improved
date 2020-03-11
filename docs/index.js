@@ -9,10 +9,10 @@ function start(e) {
 
     //dataURL is ignored/
     const newDataurl = './fixes/data.json';
-    const vDebug = document.querySelector('#debug:checked') ? true : false;
+    const vDebug = false;
     //vDebug = true;
     const vEditable = false;
-    const vUseSort = document.querySelector('#sort:checked') ? true : false;
+    const vUseSort = false;
     const newtooltiptemplate = document.getElementById('tooltiptemplate').value ? document.getElementById('tooltiptemplate').value : null;
     let vColumnOrder;
     if (document.querySelector('#vColumnOrder').value) {
