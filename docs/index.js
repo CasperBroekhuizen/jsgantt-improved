@@ -27,7 +27,7 @@ function start(e) {
     var delay = document.getElementById('delay').value;
 
 
-    var vUseSingleCell = document.getElementById('useSingleCell').value;
+    var vUseSingleCell = 1000
     var vShowRes = 1
     var vShowCost = 1
     var vShowAddEntries = 1
@@ -39,12 +39,12 @@ function start(e) {
     var vShowPlanEndDate = 1
     var vShowTaskInfoLink = 1
     var vShowEndWeekDate = 0
-    var vTotalHeight = undefined;
+    var vTotalHeight = document.querySelector('#vTotalHeight').value || undefined;
 
-    var vShowWeekends = 1
+    var vShowWeekends = document.querySelector('#vShowWeekends:checked') ? 1 : 0;
 
-    var vMinDate = undefined;
-    var vMaxDate = undefined;
+    var vMinDate = document.querySelector('#vMinDate').value;
+    var vMaxDate = document.querySelector('#vMaxDate').value;
 
     var vAdditionalHeaders = {
       category: {
