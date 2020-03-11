@@ -4743,16 +4743,15 @@ exports.makeRequest = async function (pFile, json, vDebug) {
             async on2Fa() {
               // prompt user for the one-time password retrieved via SMS or authenticator app
               return prompt("Two-factor authentication Code:");
+            },
+            token: {
+              scopes: ["repo"]
             }
           });
 
-        const appAuthentication = await auth({
-        type: "oauth-app",
-        url: "/orgs/DelfiSpace/repos"
-        });
+        const appAuthentication = await auth();
 
         var octokit = new Octokit({
-            hook: auth.hook,
             auth: appAuthentication.token
         });
         console.log("Octokit imported.")
@@ -4762,9 +4761,6 @@ exports.makeRequest = async function (pFile, json, vDebug) {
             repo: "DelfiPQ-Gantt",
             path: "planning.json"
         })
-
-        octokit.users.getAuthenticated().then( (result) => 
-        console.log("Got authenticated user!"));
 
         if (json) {
             return q.then( (res) => { 
