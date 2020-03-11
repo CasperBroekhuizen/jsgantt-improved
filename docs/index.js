@@ -43,8 +43,8 @@ function start(e) {
 
     var vShowWeekends = 1;
 
-    var vMinDate = document.querySelector('#vMinDate').value;
-    var vMaxDate = document.querySelector('#vMaxDate').value;
+    var vMinDate = "";
+    var vMaxDate = "";
 
     var vAdditionalHeaders = {
       category: {
@@ -89,7 +89,7 @@ function start(e) {
         beforeDraw: () => console.log('before draw listener'),
         afterDraw: () => {
           console.log('after draw listener');
-          if (document.querySelector("#customElements:checked")) {
+          if (true) { // Custom elements
             drawCustomElements(g);
           }
         }
@@ -117,7 +117,7 @@ function start(e) {
       vShowWeekends, // Show weekends days in the vFormat day
       vTooltipDelay: delay,
       vTooltipTemplate:
-        document.querySelector("#dynamicTooltip:checked") ?
+        true ? //Dynamic tooltip on!
           generateTooltip :
           newtooltiptemplate,
       vDebug,
