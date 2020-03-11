@@ -8,11 +8,11 @@ function start(e) {
   if (g.getDivId() != null) {
 
     //dataURL is ignored/
-    const newDataurl = document.getElementById('dataurl').value ? document.getElementById('dataurl').value : './fixes/data.json';
-    const vDebug = document.querySelector('#debug:checked') ? true : false;
+    const newDataurl = './fixes/data.json';
+    const vDebug = false;
     //vDebug = true;
     const vEditable = false;
-    const vUseSort = document.querySelector('#sort:checked') ? true : false;
+    const vUseSort = false;
     const newtooltiptemplate = document.getElementById('tooltiptemplate').value ? document.getElementById('tooltiptemplate').value : null;
     let vColumnOrder;
     if (document.querySelector('#vColumnOrder').value) {
@@ -28,23 +28,23 @@ function start(e) {
 
 
     var vUseSingleCell = document.getElementById('useSingleCell').value;
-    var vShowRes = document.querySelector('#vShowRes:checked') ? 1 : 0;
-    var vShowCost = document.querySelector('#vShowCost:checked') ? 1 : 0;
-    var vShowAddEntries = document.querySelector('#vShowAddEntries:checked') ? 1 : 0;
-    var vShowComp = document.querySelector('#vShowComp:checked') ? 1 : 0;
-    var vShowDur = document.querySelector('#vShowDur:checked') ? 1 : 0;
-    var vShowStartDate = document.querySelector('#vShowStartDate:checked') ? 1 : 0;
-    var vShowEndDate = document.querySelector('#vShowEndDate:checked') ? 1 : 0;
-    var vShowPlanStartDate = document.querySelector('#vShowPlanStartDate:checked') ? 1 : 0;
-    var vShowPlanEndDate = document.querySelector('#vShowPlanEndDate:checked') ? 1 : 0;
-    var vShowTaskInfoLink = document.querySelector('#vShowTaskInfoLink:checked') ? 1 : 0;
-    var vShowEndWeekDate = document.querySelector('#vShowEndWeekDate:checked') ? 1 : 0;
-    var vTotalHeight = document.querySelector('#vTotalHeight').value || undefined;
+    var vShowRes = 1
+    var vShowCost = 1
+    var vShowAddEntries = 1
+    var vShowComp = 1
+    var vShowDur = 1
+    var vShowStartDate = 1
+    var vShowEndDate = 1
+    var vShowPlanStartDate = 1
+    var vShowPlanEndDate = 1
+    var vShowTaskInfoLink = 1
+    var vShowEndWeekDate = 0
+    var vTotalHeight = undefined;
 
-    var vShowWeekends = document.querySelector('#vShowWeekends:checked') ? 1 : 0;
+    var vShowWeekends = 1
 
-    var vMinDate = document.querySelector('#vMinDate').value;
-    var vMaxDate = document.querySelector('#vMaxDate').value;
+    var vMinDate = undefined;
+    var vMaxDate = undefined;
 
     var vAdditionalHeaders = {
       category: {
