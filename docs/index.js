@@ -7,44 +7,41 @@ function start(e) {
   g = new JSGantt.GanttChart(document.getElementById('embedded-Gantt'), 'week');
   if (g.getDivId() != null) {
 
-    //dataURL is ignored
-    const newDataurl = document.getElementById('dataurl').value ? document.getElementById('dataurl').value : './fixes/data.json';
-    const vDebug = document.querySelector('#debug:checked') ? true : false;
+    //dataURL is ignored/
+    const newDataurl = './fixes/data.json';
+    const vDebug = false;
     //vDebug = true;
-    const vEditable = document.querySelector('#editable:checked') ? true : false;
-    const vUseSort = document.querySelector('#sort:checked') ? true : false;
-    const newtooltiptemplate = document.getElementById('tooltiptemplate').value ? document.getElementById('tooltiptemplate').value : null;
+    const vEditable = false;
+    const vUseSort = false;
+    const newtooltiptemplate = null;
     let vColumnOrder;
-    if (document.querySelector('#vColumnOrder').value) {
-      vColumnOrder = document.querySelector('#vColumnOrder').value.split(',')
-    }
 
     const vScrollTo = 'today'; // or new Date() or a Date object with a specific date
 
 
     // SET LANG FROM INPUT
     var lang = 'en';
-    var delay = document.getElementById('delay').value;
+    var delay = 150;
 
 
-    var vUseSingleCell = document.getElementById('useSingleCell').value;
-    var vShowRes = document.querySelector('#vShowRes:checked') ? 1 : 0;
-    var vShowCost = document.querySelector('#vShowCost:checked') ? 1 : 0;
-    var vShowAddEntries = document.querySelector('#vShowAddEntries:checked') ? 1 : 0;
-    var vShowComp = document.querySelector('#vShowComp:checked') ? 1 : 0;
-    var vShowDur = document.querySelector('#vShowDur:checked') ? 1 : 0;
-    var vShowStartDate = document.querySelector('#vShowStartDate:checked') ? 1 : 0;
-    var vShowEndDate = document.querySelector('#vShowEndDate:checked') ? 1 : 0;
-    var vShowPlanStartDate = document.querySelector('#vShowPlanStartDate:checked') ? 1 : 0;
-    var vShowPlanEndDate = document.querySelector('#vShowPlanEndDate:checked') ? 1 : 0;
-    var vShowTaskInfoLink = document.querySelector('#vShowTaskInfoLink:checked') ? 1 : 0;
-    var vShowEndWeekDate = document.querySelector('#vShowEndWeekDate:checked') ? 1 : 0;
-    var vTotalHeight = document.querySelector('#vTotalHeight').value || undefined;
+    var vUseSingleCell = 1000
+    var vShowRes = 1
+    var vShowCost = 1
+    var vShowAddEntries =1
+    var vShowComp = 1
+    var vShowDur = 1
+    var vShowStartDate = 1
+    var vShowEndDate = 1
+    var vShowPlanStartDate = 1
+    var vShowPlanEndDate = 1
+    var vShowTaskInfoLink = 1
+    var vShowEndWeekDate = 1
+    var vTotalHeight = 400;
 
     var vShowWeekends = document.querySelector('#vShowWeekends:checked') ? 1 : 0;
 
-    var vMinDate = document.querySelector('#vMinDate').value;
-    var vMaxDate = document.querySelector('#vMaxDate').value;
+    var vMinDate;
+    var vMaxDate;
 
     var vAdditionalHeaders = {
       category: {
