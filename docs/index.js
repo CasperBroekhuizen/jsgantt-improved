@@ -13,21 +13,21 @@ function start(e) {
     //vDebug = true;
     const vEditable = false;
     const vUseSort = false;
-    const newtooltiptemplate = document.getElementById('tooltiptemplate').value ? document.getElementById('tooltiptemplate').value : null;
+    const newtooltiptemplate = "<div>Nome: {{pName}}</div> <div>{{Lang:pStart}}: {{pStart}}</div>"
     let vColumnOrder;
-    if (document.querySelector('#vColumnOrder').value) {
-      vColumnOrder = document.querySelector('#vColumnOrder').value.split(',')
-    }
+    // if (document.querySelector('#vColumnOrder').value) {
+    //   vColumnOrder = document.querySelector('#vColumnOrder').value.split(',')
+    // }
 
     const vScrollTo = 'today'; // or new Date() or a Date object with a specific date
 
 
     // SET LANG FROM INPUT
     var lang = 'en';
-    var delay = document.getElementById('delay').value;
+    var delay = 150;
 
 
-    var vUseSingleCell = document.getElementById('useSingleCell').value;
+    var vUseSingleCell = 1000;
     var vShowRes = document.querySelector('#vShowRes:checked') ? 1 : 0;
     var vShowCost = document.querySelector('#vShowCost:checked') ? 1 : 0;
     var vShowAddEntries = document.querySelector('#vShowAddEntries:checked') ? 1 : 0;
