@@ -60,6 +60,62 @@
 
 <body data-spy="scroll" data-target="#my-navbar-nav" style="padding: 30px;">
 
+  <span>
+    <label>Height:</label>
+    <input type="text" id="vTotalHeight" fl onchange="start(event)" />
+    (CSS style height like "300px". Empty for auto height)
+
+
+    <br /><br />
+    <span>
+      <label>Custom elements (black lines for deadlines):</label>
+      <input type="checkbox" id="customElements" checked onchange="start(event)" />
+      <div class="space"></div>
+      <label>Min Date:</label>
+      <input type="date" id="vMinDate" onchange="start(event)" />
+      <div class="space"></div>
+      <label>Max Date:</label>
+      <input type="date" id="vMaxDate" onchange="start(event)" />
+    </span>
+
+    <br />
+
+    <span>
+      <label>Custom Tooltip Template:</label><br />
+      <textarea id="tooltiptemplate"
+        onchange="start(event)"><div>Nome: {{pName}}</div> <div>{{Lang:pStart}}: {{pStart}}</div></textarea>
+      <div class="space"></div>
+      <label>Dynamic tooltip:</label>
+      <input type="checkbox" id="dynamicTooltip" checked onchange="start(event)" />
+    </span>
+
+
+    <br /><br />
+    <span>
+      <label>Custom columns order:</label>
+      <input type="text" id="vColumnOrder" onchange="start(event)" />
+      <!-- value="vShowDur,vShowComp,vShowRes,vShowStartDate,vShowEndDate,vShowPlanStartDate,vShowPlanEndDate,vShowCost,vAdditionalHeaders,vShowAddEntries"  -->
+    </span>
+
+
+
+    <br />
+
+    <span>
+      <button onclick="clearTasks()">Clear all tasks</button>
+    </span>
+
+    <span>
+      <button onclick="print()">Print data in console</button>
+    </span>
+
+    <br />
+
+    <small>
+      * Click events in table are binded to console.log for testing
+    </small>
+
+
     <br /><br />
     <div id="embedded-Gantt">
     </div>
