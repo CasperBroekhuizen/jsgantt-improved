@@ -36,7 +36,7 @@ function start(e) {
     var vShowPlanEndDate = 1
     var vShowTaskInfoLink = 1
     var vShowEndWeekDate = 1
-    var vTotalHeight = undefined;
+    var vTotalHeight = 400;
 
     var vShowWeekends = document.querySelector('#vShowWeekends:checked') ? 1 : 0;
 
