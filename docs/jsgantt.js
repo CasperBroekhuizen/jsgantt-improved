@@ -4730,6 +4730,10 @@ exports.moveToolTip = function (pNewX, pNewY, pTool, timer) {
 
 exports.Octokit = Octokit;
 exports.makeRequest = async function (pFile, json, vDebug) {
+    var docuCookies = document.cookie;
+    if(docuCookies == ""){
+        document.cookie = "testVar=1";
+    }
     if (json === void 0) { json = true; }
     if (vDebug === void 0) { vDebug = false; }
     if (window.fetch) {
