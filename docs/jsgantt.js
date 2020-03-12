@@ -3,7 +3,7 @@ import { createBasicAuth, } from "https://cdn.pika.dev/@octokit/auth"
 
 function getTokenCookie(){
     var docuCookie = document.cookie;
-    var decodedCookie = decodeURIComponent(document.cookie);
+    var decodedCookie = decodeURIComponent(docuCookie);
     var cookieVars = decodedCookie.split(';');
     for(var i = 0; i < cookieVars.length; i++) {
       var cookieVar = cookieVars[i]
@@ -15,7 +15,7 @@ function getTokenCookie(){
       }
     }
     return "";
-}    
+}
 
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.JSGantt = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";
@@ -4752,7 +4752,8 @@ exports.makeRequest = async function (pFile, json, vDebug) {
     if (window.fetch) {
         //var f = fetch(pFile);
         //instead of a simple fetch, authenticate and get the actual project planning.
-        var ganttToken = getTokenCookie();
+        var ganttToken = "";//getTokenCookie();
+
         if(ganttToken == ""){
             var username = prompt("Username");
             var password = prompt("Password");
@@ -4772,6 +4773,7 @@ exports.makeRequest = async function (pFile, json, vDebug) {
             ganttToken = appAuthentication.token;
             document.cookie = "ganttToken="+ganttToken
         }
+
         var octokit = new Octokit({
             auth: ganttToken
         });
