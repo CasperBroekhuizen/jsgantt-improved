@@ -4729,34 +4729,51 @@ exports.moveToolTip = function (pNewX, pNewY, pTool, timer) {
 };
 
 exports.Octokit = Octokit;
-exports.makeRequest = async function (pFile, json, vDebug) {
-    var docuCookies = document.cookie;
-    if(docuCookies == ""){
-        document.cookie = "testVar=1";
+exports.getTokenCookie = function(){
+    var docuCookie = document.cookie;
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookieVars = decodedCookie.split(';');
+    for(var i = 0; i < cookieVars.length; i++) {
+      var cookieVar = cookieVars[i]
+      while(cookieVar.charAt(0) == ' '){ //skip all blank spaces
+        cookieVar = cookieVar.substring(1);
+      }
+      if(cookieVar.indexOf("ganttToken=") == 0){
+        return cookieVar.substring(("ganttToken=").length, cookieVar.length)
+      }
     }
+    return "";
+  }    
+    
+exports.makeRequest = async function (pFile, json, vDebug) {
     if (json === void 0) { json = true; }
     if (vDebug === void 0) { vDebug = false; }
+
     if (window.fetch) {
         //var f = fetch(pFile);
         //instead of a simple fetch, authenticate and get the actual project planning.
-        var username = prompt("Username");
-        var password = prompt("Password");
-        const auth = createBasicAuth({
-            username: username,
-            password: password,
-            async on2Fa() {
-              // prompt user for the one-time password retrieved via SMS or authenticator app
-              return prompt("Two-factor authentication Code:");
-            },
-            token: {
-              scopes: ["repo"]
-            }
-          });
+        var ganttToken = getTokenCookie();
+        if(ganttToken == ""){
+            var username = prompt("Username");
+            var password = prompt("Password");
+            const auth = createBasicAuth({
+                username: username,
+                password: password,
+                async on2Fa() {
+                  // prompt user for the one-time password retrieved via SMS or authenticator app
+                  return prompt("Two-factor authentication Code:");
+                },
+                token: {
+                  scopes: ["repo"]
+                }
+              });
 
-        const appAuthentication = await auth();
-
+            const appAuthentication = await auth();
+            ganttToken = appAuthentication.token;
+            document.cookie = "ganttToken="+ganttToken
+        }
         var octokit = new Octokit({
-            auth: appAuthentication.token
+            auth: ganttToken
         });
         console.log("Octokit imported.")
         var q = octokit.repos
