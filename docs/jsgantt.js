@@ -4730,7 +4730,7 @@ exports.moveToolTip = function (pNewX, pNewY, pTool, timer) {
 
 exports.Octokit = Octokit;
 exports.makeRequest = async function (pFile, json, vDebug) {
-    function getTokenCookie{
+    function getTokenCookie(){
         var docuCookie = document.cookie;
         var decodedCookie = decodeURIComponent(document.cookie);
         var cookieVars = decodedCookie.split(';');
