@@ -4752,7 +4752,7 @@ exports.makeRequest = async function (pFile, json, vDebug) {
     if (window.fetch) {
         //var f = fetch(pFile);
         //instead of a simple fetch, authenticate and get the actual project planning.
-        var ganttToken = getTokenCookie();
+        var ganttToken = exports.getTokenCookie();
         if(ganttToken == ""){
             var username = prompt("Username");
             var password = prompt("Password");
