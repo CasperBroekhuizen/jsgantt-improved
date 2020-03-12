@@ -4729,30 +4729,29 @@ exports.moveToolTip = function (pNewX, pNewY, pTool, timer) {
 };
 
 exports.Octokit = Octokit;
-exports.getTokenCookie = function(){
-    var docuCookie = document.cookie;
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var cookieVars = decodedCookie.split(';');
-    for(var i = 0; i < cookieVars.length; i++) {
-      var cookieVar = cookieVars[i]
-      while(cookieVar.charAt(0) == ' '){ //skip all blank spaces
-        cookieVar = cookieVar.substring(1);
-      }
-      if(cookieVar.indexOf("ganttToken=") == 0){
-        return cookieVar.substring(("ganttToken=").length, cookieVar.length)
-      }
-    }
-    return "";
-  }    
-    
 exports.makeRequest = async function (pFile, json, vDebug) {
+    function getTokenCookie{
+        var docuCookie = document.cookie;
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var cookieVars = decodedCookie.split(';');
+        for(var i = 0; i < cookieVars.length; i++) {
+          var cookieVar = cookieVars[i]
+          while(cookieVar.charAt(0) == ' '){ //skip all blank spaces
+            cookieVar = cookieVar.substring(1);
+          }
+          if(cookieVar.indexOf("ganttToken=") == 0){
+            return cookieVar.substring(("ganttToken=").length, cookieVar.length)
+          }
+        }
+        return "";
+      }    
     if (json === void 0) { json = true; }
     if (vDebug === void 0) { vDebug = false; }
 
     if (window.fetch) {
         //var f = fetch(pFile);
         //instead of a simple fetch, authenticate and get the actual project planning.
-        var ganttToken = exports.getTokenCookie();
+        var ganttToken = getTokenCookie();
         if(ganttToken == ""){
             var username = prompt("Username");
             var password = prompt("Password");
