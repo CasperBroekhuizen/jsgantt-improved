@@ -4731,7 +4731,7 @@ exports.moveToolTip = function (pNewX, pNewY, pTool, timer) {
 exports.Octokit = Octokit;
 exports.makeRequest = async function (pFile, json, vDebug) {
 
-    function getTokenCookie(){
+    var getTokenCookie = function(){
         var docuCookie = document.cookie;
         var decodedCookie = decodeURIComponent(docuCookie);
         var cookieVars = decodedCookie.split(';');
@@ -4746,7 +4746,7 @@ exports.makeRequest = async function (pFile, json, vDebug) {
         }
         return "";
     }
-    
+
     if (json === void 0) { json = true; }
     if (vDebug === void 0) { vDebug = false; }
 
